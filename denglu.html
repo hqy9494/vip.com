@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="font/iconfont.css">
+    <!-- <link rel="stylesheet" href="css/index.css"> -->
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            background: #fdfbfe;
+        }
+
+        .container {
+            width: 1100px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left:0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        .denglutop {
+            width: 100%;
+            margin: auto;
+        }
+
+        .denglutop>img {
+            width: 100%;
+            height: 70%;
+        }
+
+        .main {
+            height: 600px;
+            width: 100%;
+            margin: auto;
+        }
+        
+        .main>img {
+            display: block;
+            width: 46%;
+            margin: 50px 30px 0 50px;
+            float: left;
+        }
+
+        .main>form {
+            margin: 20px 0 0 60px;
+            display: block;
+            width: 301px;
+            height: 500px;
+            float: left;
+            font-size: 14px;
+            color: #333;
+        }
+
+
+        .main>form>b {
+            font-weight: bold;
+            font-size: 19px;
+        }
+
+        .main>form>p {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .main>form>input[type="text"] {
+            width: 300px;
+            height: 35px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .main>form>input[type="button"] {
+            display: inline-block;
+            width: 100px;
+            height: 35px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #f10180;
+            border: 0;
+            outline: medium;
+            border-radius: 3px;
+            margin: 0 40px 0 2px;
+        }
+
+       #hzdenglu>p {
+           display: block;
+           text-align: center;
+       }
+
+        #hzdenglu>p>img {
+            display: bolck;
+            width: 25px;
+            height: 25px;
+        }
+
+        .main>form>span {
+            line-height: 12px;
+            font-size: 10px;
+            color: red;
+        }
+
+        #gengduo {
+            font-size: 13px;
+            color: #333;
+            line-height: 30px;
+        }
+
+        #hzdenglu>ul {
+            display: none;
+            width: 300px;
+            overflow: hidden;
+            padding:0;
+            margin:0 auto;
+        }
+
+        #hzdenglu>ul>li {
+            display: inline-block;
+            width: 62px;
+            text-align: center;
+            list-style: none;
+            line-height: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        #hzdenglu>ul>li>a {
+            text-decoration: none;
+            color: #666;
+        } 
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="denglutop">
+            <img src="img/denglutop.png" alt="">
+        </div>
+        <div class="main">
+                <img src="img/leftimg.png" alt="">
+                <form action="" onsubmit="submit()">
+                    <p><b>wei**</b>，欢迎回来！请登录</p> 
+                    <input type="text" name="user" id="user" placeholder="  手机号/用户名/邮箱"><br>
+                    <span id="inuser"> </span><br><br>
+                    <input type="text" name="pass" id="pass" placeholder="  密码"><br>
+                    <span id="inpass"> </span><br>
+                    <input type="text" id="yzm" name="yzm" placeholder="  验证码" style="width:140px;display:inline-block;height:30px;line-height: 35px">
+                    <img src="img/yzm1.png" alt="" style="width: 100px;height:35px;position:relative;top:9px;" id="yzmimg">
+                    <a style="color: skyblue;" id="nextone">换一张</a><br>
+                    <span id="inyzm"> </span><br> <br>
+                    <input type="checkbox" value="reu" id="reu"><label for="reu">记住用户名</label>    
+                    <input type="checkbox" value="rep" id="rep"><label for="rep">记住密码</label><br><br>                   
+                    <input type="button" value="登录" id="denglu">
+                    <p style="display: inline-block"><a href="#">忘记密码</a>&nbsp;|&nbsp;<a href="">免费注册</a><br></p>
+                    <div id="hzdenglu">
+                        <p style="font-size: 10px;line-height:30px">合作网站账号登录</p>
+                        <p>
+                            <img src="img/weixinlogo.png" alt="">
+                            <img src="img/qqlogo.png" alt="">
+                            <img src="img/weibologo.png" alt="">
+                            <img src="img/zfblogo.png" alt="">
+                           &nbsp; <span id="gengduo">更多<i class="iconfont icon-biaotou-daoxu" style="font-size: 8px"></i></span>
+                        </p>
+                        <ul>
+                            <li><a href="">网 易</a></li>|
+                            <li><a href="">人人网</a></li>|
+                            <li><a href="">建行登录</a></li>|
+                            <li style="border-right:0"><a href="">财付通</a></li>
+                            <li><a href="">开心网</a></li>|
+                            <li><a href="">中国移动</a></li>|
+                            <li style="border-right:0"><a href="">翼支付</a></li>
+                        </ul>
+                    </div>
+                </form>
+        </div>
+    </div>
+    <script>
+        var user = document.getElementById("user");
+        var pass = document.getElementById("pass");
+        var reuser = document.getElementById("reuser");
+        var repass = document.getElementById("repass");
+        var inuser = document.getElementById("inuser");
+        var inpass = document.getElementById("inpass");
+        var nextone = document.getElementById("nextone");
+        var yzmimg = document.getElementById("yzmimg");
+        var gengduo = document.getElementById("gengduo");
+        var gengduolist = document.querySelector("#hzdenglu>ul")
+        var gdnum = 0;
+        var yzmArr = ["8Rc0","wjju","Y1TD","92Gw","6146"];
+        var yzmnum = 0;
+
+        //添加cookie
+        function setCookie(keyname,keyvalue,maxage) {
+            document.cookie = keyname + "=" + keyvalue+";max-age="+maxage;
+            console.log(document.cookie);
+        }
+
+        //查找cooki
+        function getCookie(keyName){
+			var resArr = document.cookie.split(';');
+			console.log(resArr);
+			for(var i = 0; i <resArr.length; i++){
+				// console.log(resArr[i])
+				var val = resArr[i].split("=");
+				// console.log(val)
+				// if(val[0].trim() == keyName){
+				return val[1]
+			}
+		}
+        
+        //删除cookie
+        function removeCookie(keyname){
+            setCookie(keyname,"",-1);
+        }
+        window.onload=function(){
+            //登录验证
+            if(getCookie('user')){
+                user.value = getCookie('user');
+                reuser.checked = true;
+            }
+            if(getCookie('pass')){
+                pass.value = getCookie('pass');
+                repass.checked = true;
+            }
+            denglu.onclick = function() {
+                if(user.value==""){
+                    inuser.innerText = "登录名不能为空！";
+                }else if(user.value!="88888888"){
+                    inuser.innerText = "用户名错误！";   
+                }else if(user.value!="88888888"){
+                    inuser.innerText = " ";
+                }
+
+                if(pass.value==""){
+                    inpass.innerText = "密码不能为空！";
+                }else if(pass.value!="88888888"){
+                    inpass.innerText = "密码错误！";   
+                }else if(pass.value=="88888888"){
+                    inpass.innerText = " ";
+                }
+
+                if(yzm.value==""){
+                    inyzm.innerText = "验证码不能为空！";return false;
+                }else if(yzm.value!=yzmArr[yzmnum]){
+                    inyzm.innerText = "验证码错误！";   
+                }else if(yzm.value==yzmArr[yzmnum]){
+                    inyzm.innerText = " ";
+                }
+
+                if(user.value=="88888888"&&pass.value=="88888888"&&yzm.value==yzmArr[yzmnum]){
+                    window.location = "index.html";
+                }
+
+                if(reuser.checked&&user.value=="88888888"){
+                   setCookie("user",user.value,3600);
+                }else if(reuser.checked){
+                    removeCookie("user");
+                }
+                if(repass.checked&&user.value=="88888888"){
+                    document.cookie = "pass=" + pass.value;
+                    setCookie("pass",pass.value,3600);
+                }else if(!repass.checked){
+                    removeCookie("pass");
+                }
+            }
+
+            
+            gengduo.onclick = function() {
+                    gdnum++;
+                    gdnum%=2;
+                    if(gdnum==1){
+                        gengduolist.style.display = "block";
+                    }
+                    if(gdnum==0){
+                        gengduolist.style.display = "none";
+                    }
+                    console.log(gdnum)
+
+                }
+            //切换验证码图片
+            nextone.onclick = function() {
+                yzmnum++;
+                if(yzmnum>5){
+                    yzmnum=0;
+                }
+                yzmimg.src = "img/yzm" + (yzmnum+1) + ".png"; 
+            }
+
+            
+
+        }
+    </script> 
+</body>
+</html>
